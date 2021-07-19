@@ -5,16 +5,18 @@
 #include "Deck.h"
 #include "House.h"
 #include "Player.h"
+#include "Scene.h"
 
 class Game {
 public:
-    Game(const std::vector<std::string>& names);
+    explicit Game(const std::vector<std::string>& names, Scene *scene);
     ~Game();
     void Play();
 private:
     Deck m_Deck;
     House m_House;
     std::vector<Player> m_Players;
+    Scene *m_scene;
 };
 
 

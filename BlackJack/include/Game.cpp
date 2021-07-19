@@ -2,7 +2,7 @@
 #include <random>
 
 
-Game::Game(const std::vector<std::string> &names) {
+Game::Game(const std::vector<std::string> &names, Scene *scene) : m_scene(scene){
     std::vector<std::string>::const_iterator pName;
     for (pName = names.begin(); pName != names.end(); ++pName) {
         m_Players.emplace_back(Player(*pName));
@@ -11,10 +11,16 @@ Game::Game(const std::vector<std::string> &names) {
     m_Deck.Shuffle();
 }
 
-Game::~Game() {
-}
+Game::~Game() = default;
+
 
 void Game::Play() {
+    std::string pixString;
+    QString qString = " ";
+
+    m_scene->clearIcons();
+    m_scene->setResultLabel(qString);
+
     std::vector<Player>::iterator pPlayer;
     for (int i = 0; i < 2; ++i) {
         for (pPlayer = m_Players.begin(); pPlayer != m_Players.end(); ++pPlayer) {
@@ -59,6 +65,7 @@ void Game::Play() {
     m_Players.clear();
 
 }
+
 
 
 

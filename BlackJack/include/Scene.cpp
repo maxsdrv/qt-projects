@@ -1,7 +1,9 @@
 #include "Scene.h"
+#include "Game.h"
 
 #include <memory>
 
+class Game;
 
 Scene::Scene(QWidget *parent) : QWidget(parent) {
     startButton = new QPushButton(tr("&Start"));
@@ -72,22 +74,22 @@ void Scene::setupIcons() {
 
     for (int i = 0; i < MAXCARDS; ++i) {
         cardIconHouse[i] = new QLabel(cardTable);
-        str = "/home/maxim/Cpp/qt-projects/images/blank.png";
+        str = "images/xx.png";
         qPixmap = QPixmap(str.c_str());
         cardIconHouse[i]->setPixmap(qPixmap);
-        cardIconHouse[i]->move(80 + 60 * i, 20);
+        cardIconHouse[i]->move(100 + 60 * i, 20);
     }
 
     for (int i = 0; i < MAXCARDS; ++i) {
         cardIconPlayers[i] = new QLabel(cardTable);
-        qPixmap = QPixmap("/home/maxim/Cpp/qt-projects/images/blank.png");
+        qPixmap = QPixmap("images/xx.png");
         cardIconPlayers[i]->setPixmap(qPixmap);
-        cardIconPlayers[i]->move(80 + 60 * i, 150);
+        cardIconPlayers[i]->move(100 + 60 * i, 150);
     }
 }
 
 void Scene::clearIcons() {
-    QPixmap qPixmap = QPixmap("blank.png");
+    QPixmap qPixmap = QPixmap("/images/blank.png");
     for (auto& i : cardIconHouse) {
         i->setPixmap(qPixmap);
     }
@@ -102,6 +104,12 @@ void Scene::setEnableHitStandButtons(bool b) {
 }
 
 void Scene::startBtn() {
+    std::vector<std::string> names;
+    std::string name = "You";
+    names.push_back(name);
+
+    myGame = new Game(names, this);
+
 
 }
 

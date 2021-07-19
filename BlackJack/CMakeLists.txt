@@ -11,6 +11,7 @@ set(QT_VERSION 5)
 set(REQUIRED_LIBS Core Gui Widgets)
 set(REQUIRED_LIBS_QUALIFIED Qt5::Core Qt5::Gui Qt5::Widgets)
 set(CMAKE_PREFIX_PATH "/home/Qt/6.1.2/gcc_64/lib/cmake")
+
 set(SOURCE_FILES
         main.cpp
         include/Card.cpp
@@ -30,9 +31,11 @@ set(HEADER_FILES
         include/Deck.h
         include/Game.h
         include/Scene.h)
+
 set(RES_FOLDER "${CMAKE_CURRENT_SOURCE_DIR}/images")
 
-add_executable(${PROJECT_NAME} ${SOURCE_FILES} ${HEADER_FILES} ${RES_FOLDER})
+
+add_executable(${PROJECT_NAME} ${HEADER_FILES} ${SOURCE_FILES} ${RES_FOLDER})
 
 if (NOT CMAKE_PREFIX_PATH)
     message(WARNING "CMAKE_PREFIX_PATH is not defined, you may need to set it "
