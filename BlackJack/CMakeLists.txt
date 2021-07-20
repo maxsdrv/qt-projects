@@ -10,10 +10,12 @@ set(CMAKE_AUTOUIC ON)
 set(QT_VERSION 5)
 set(REQUIRED_LIBS Core Gui Widgets)
 set(REQUIRED_LIBS_QUALIFIED Qt5::Core Qt5::Gui Qt5::Widgets)
-set(CMAKE_PREFIX_PATH "/home/Qt/6.1.2/gcc_64/lib/cmake")
+#set(CMAKE_PREFIX_PATH "/home/Qt/6.1.2/gcc_64/lib/cmake") #for linux
+set(CMAKE_PREFIX_PATH "D:/Qt/5.14.1/mingw73_64/lib/cmake")
 
 set(SOURCE_FILES
         main.cpp
+				images.qrc
         include/Card.cpp
         include/Hand.cpp
         include/GenericPlayer.cpp
@@ -33,7 +35,6 @@ set(HEADER_FILES
         include/Scene.h)
 
 set(RES_FOLDER "${CMAKE_CURRENT_SOURCE_DIR}/images")
-
 
 add_executable(${PROJECT_NAME} ${HEADER_FILES} ${SOURCE_FILES} ${RES_FOLDER})
 

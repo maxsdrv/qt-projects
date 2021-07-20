@@ -74,7 +74,7 @@ void Scene::setupIcons() {
 
     for (int i = 0; i < MAXCARDS; ++i) {
         cardIconHouse[i] = new QLabel(cardTable);
-        str = "images/xx.png";
+		str = ":images/xx.png";
         qPixmap = QPixmap(str.c_str());
         cardIconHouse[i]->setPixmap(qPixmap);
         cardIconHouse[i]->move(100 + 60 * i, 20);
@@ -82,14 +82,14 @@ void Scene::setupIcons() {
 
     for (int i = 0; i < MAXCARDS; ++i) {
         cardIconPlayers[i] = new QLabel(cardTable);
-        qPixmap = QPixmap("images/xx.png");
+		qPixmap = QPixmap(":images/xx.png");
         cardIconPlayers[i]->setPixmap(qPixmap);
         cardIconPlayers[i]->move(100 + 60 * i, 150);
     }
 }
 
 void Scene::clearIcons() {
-    QPixmap qPixmap = QPixmap("/images/blank.png");
+	QPixmap qPixmap = QPixmap(":/images/blank.png");
     for (auto& i : cardIconHouse) {
         i->setPixmap(qPixmap);
     }
