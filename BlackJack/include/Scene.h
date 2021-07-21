@@ -33,11 +33,13 @@ public:
 public slots:
     void startBtn();
     void hitBtn();
-    void standBtn();
+	void standBtn();
+	void addBtn();
 private:
     QPushButton *startButton;
     QPushButton *hitButton;
     QPushButton *standButton;
+	QPushButton *addButton;
     QLabel *hostState;
     QLabel *playerState;
     QLabel *result;

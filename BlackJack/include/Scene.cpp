@@ -9,15 +9,18 @@ Scene::Scene(QWidget *parent) : QWidget(parent) {
     startButton = new QPushButton(tr("&Start"));
     hitButton = new QPushButton(tr("&Hit"));
     standButton = new QPushButton(tr("&Stand"));
+	addButton = new QPushButton(tr("&AddPlayer"));
 
     connect(startButton, SIGNAL(clicked()), this, SLOT(startBtn()));
     connect(hitButton, SIGNAL(clicked()), this, SLOT(hitBtn()));
     connect(standButton, SIGNAL(clicked()), this, SLOT(standBtn()));
+	connect(addButton, SIGNAL(clicked()), this, SLOT(addBtn()));
 
     auto *buttonLayout = new QHBoxLayout;
     buttonLayout->addWidget(startButton);
     buttonLayout->addWidget(hitButton);
     buttonLayout->addWidget(standButton);
+	buttonLayout->addWidget(addButton);
 
     buttonLayout->addStretch();
 
@@ -118,5 +121,10 @@ void Scene::hitBtn() {
 }
 
 void Scene::standBtn() {
+
+}
+
+void Scene::addBtn()
+{
 
 }
