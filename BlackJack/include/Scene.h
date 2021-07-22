@@ -17,7 +17,6 @@ class Player;
 class Game;
 class GenericPlayer;
 
-const int MAXCARDS = 10;
 
 class Scene : public QWidget {
     Q_OBJECT;
@@ -45,8 +44,9 @@ private:
     QLabel *result;
     Game *myGame;
     QListView *cardTable;
-    QLabel *cardIconHouse[MAXCARDS];
-    QLabel *cardIconPlayers[MAXCARDS];
+	std::vector<QLabel*> cardIconHouse;
+	std::vector<QLabel*> cardIconPlayers;
+	static inline const int MAXCARDS = 10;
 };
 
 

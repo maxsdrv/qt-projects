@@ -12,11 +12,16 @@ public:
     explicit Game(const std::vector<std::string>& names, Scene *scene);
     ~Game();
     void Play();
+	void hitSelected();
+	void standSelected();
+	bool getStand();
+	void setStand(bool b);
 private:
     Deck m_Deck;
     House m_House;
     std::vector<Player> m_Players;
     Scene *m_scene;
+	bool stand;
 };
 
 

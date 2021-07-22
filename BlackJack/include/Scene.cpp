@@ -26,7 +26,7 @@ Scene::Scene(QWidget *parent) : QWidget(parent) {
 
     cardTable = new QListView;
     auto *houseLabel = new QLabel(cardTable);
-    auto playerLabel = new QLabel(cardTable);
+	auto *playerLabel = new QLabel(cardTable);
     houseLabel->setText("House");
     playerLabel->setText("Player");
     houseLabel->move(10, 20);
@@ -44,6 +44,10 @@ Scene::Scene(QWidget *parent) : QWidget(parent) {
 
     auto *mainLayout = new QGridLayout;
     mainLayout->addLayout(verticalLayout, 0, 0, 1, 1);
+
+	cardIconHouse.resize(MAXCARDS);
+	cardIconPlayers.resize(MAXCARDS);
+
     setLayout(mainLayout);
 
     setWindowTitle(tr("BlackJack "));
@@ -76,11 +80,12 @@ void Scene::setupIcons() {
     std::string str;
 
     for (int i = 0; i < MAXCARDS; ++i) {
-        cardIconHouse[i] = new QLabel(cardTable);
+		cardIconHouse[i] = new QLabel(cardTable);
 		str = ":images/xx.png";
         qPixmap = QPixmap(str.c_str());
-        cardIconHouse[i]->setPixmap(qPixmap);
-        cardIconHouse[i]->move(100 + 60 * i, 20);
+		cardIconHouse[i]->setPixmap(qPixmap);
+		cardIconHouse[i]->move(100 + 60 * i, 20);
+
     }
 
     for (int i = 0; i < MAXCARDS; ++i) {
@@ -111,8 +116,12 @@ void Scene::startBtn() {
     std::string name = "You";
     names.push_back(name);
 
+	//the game
     myGame = new Game(names, this);
 
+	//initial table setup
+	myGame->Play();
+	setEnableHitStandButtons(true);
 
 }
 
