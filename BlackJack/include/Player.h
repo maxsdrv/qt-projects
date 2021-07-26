@@ -9,7 +9,7 @@ public:
     explicit Player(std::string name = "");
     ~Player() override;
 
-		virtual void makePixmaps(GenericPlayer& aGenericPlayer);
+		void makePixmaps(GenericPlayer& aGenericPlayer) override;
 
     [[nodiscard]]bool isHitting() const override; //показывает хочет ли игрок брать карты
 		void Win(Scene& scene) const; //объявляет что игрок победил

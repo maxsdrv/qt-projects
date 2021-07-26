@@ -37,5 +37,17 @@ std::vector<QPixmap> Player::getPixmaps()
 
 }
 
+int Player::getHitCount() {
+    return 0;
+}
+
+void Player::resetHitCount() {
+
+}
+
+void Player::setHitCount() {
+
+}
+
 
 Player::~Player() = default;

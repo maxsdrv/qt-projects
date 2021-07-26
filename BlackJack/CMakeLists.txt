@@ -7,11 +7,10 @@ set(CMAKE_AUTOMOC ON)
 set(CMAKE_AUTORCC ON)
 set(CMAKE_AUTOUIC ON)
 
-set(QT_VERSION 5)
+set(QT_VERSION 6)
 set(REQUIRED_LIBS Core Gui Widgets)
-set(REQUIRED_LIBS_QUALIFIED Qt5::Core Qt5::Gui Qt5::Widgets)
-#set(CMAKE_PREFIX_PATH "/home/Qt/6.1.2/gcc_64/lib/cmake") #for linux
-set(CMAKE_PREFIX_PATH "D:/Qt/5.14.1/mingw73_64/lib/cmake")
+set(REQUIRED_LIBS_QUALIFIED Qt6::Core Qt6::Gui Qt6::Widgets)
+set(CMAKE_PREFIX_PATH "/home/maxim/Qt/6.1.2/gcc_64/lib/cmake") #for linux
 
 set(SOURCE_FILES
         main.cpp

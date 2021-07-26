@@ -12,8 +12,7 @@ QString GenericPlayer::Bust() const { std::cout << m_Name << " busts.\n"; }
 
 QString &GenericPlayer::getLabelQStr() const {}
 
-std::ostream &operator<<(std::ostream &os,
-												 const GenericPlayer &aGenericPlayer) {
+std::ostream &operator<<(std::ostream &os, const GenericPlayer &aGenericPlayer) {
 	os << aGenericPlayer.m_Name << ":\t";
 	std::vector<std::shared_ptr<Card>>::const_iterator pCard;
 	if (!aGenericPlayer.m_Cards.empty()) {

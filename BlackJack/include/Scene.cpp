@@ -60,18 +60,36 @@ Scene::Scene(QWidget *parent) : QWidget(parent) {
 }
 
 void Scene::setHostStateLabel(QString &s) {
-
+    hostState->setText(s);
 }
 
 void Scene::setPlayerStateLabel(QString &s) {
-
+    playerState->setText(s);
 }
 
 void Scene::setResultLabel(QString &s) {
-
+    result->setText(s);
 }
 
 void Scene::drawCards(GenericPlayer &aGenericPlayer) {
+    QPixmap qPixmap;
+    std::string str;
+
+    if (typeid(aGenericPlayer) == typeid(Player)) {
+         auto *ptr = dynamic_cast<Player *> (&aGenericPlayer);
+         auto size = (ptr->getPixmaps()).size();
+         for (int i = 0; i < size; ++i) {
+             qPixmap = (ptr->getPixmaps())[i];
+             cardIconPlayers[i]->setPixmap(qPixmap);
+         }
+    }
+    else if (typeid(aGenericPlayer) == typeid(House)) {
+        auto *ptr = dynamic_cast<House *> (&aGenericPlayer);
+        auto size = (ptr->getPixmaps()).size();
+        for (int i = 0; i < size; ++i) {
+
+        }
+    }
 
 }
 
@@ -97,7 +115,7 @@ void Scene::setupIcons() {
 }
 
 void Scene::clearIcons() {
-	QPixmap qPixmap = QPixmap(":/images/blank.png");
+	QPixmap qPixmap = QPixmap(":images/blank.png");
     for (auto& i : cardIconHouse) {
         i->setPixmap(qPixmap);
     }
@@ -126,14 +144,13 @@ void Scene::startBtn() {
 }
 
 void Scene::hitBtn() {
-
+    myGame->hitSelected();
 }
 
 void Scene::standBtn() {
-
+    myGame->standSelected();
 }
 
-void Scene::addBtn()
-{
+void Scene::addBtn() {
 
 }
