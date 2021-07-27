@@ -2,7 +2,7 @@ cmake_minimum_required(VERSION 3.19)
 project(qt_projects)
 
 
-set(CMAKE_CXX_STANDARD 20)
+set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_AUTOMOC ON)
 set(CMAKE_AUTORCC ON)
 set(CMAKE_AUTOUIC ON)
@@ -10,7 +10,8 @@ set(CMAKE_AUTOUIC ON)
 set(QT_VERSION 6)
 set(REQUIRED_LIBS Core Gui Widgets)
 set(REQUIRED_LIBS_QUALIFIED Qt6::Core Qt6::Gui Qt6::Widgets)
-set(CMAKE_PREFIX_PATH "/home/maxim/Qt/6.1.2/gcc_64/lib/cmake") #for linux
+#set(CMAKE_PREFIX_PATH "/home/Qt/6.1.2/gcc_64/lib/cmake") #for linux
+set(CMAKE_PREFIX_PATH "D:/Qt/6.1.2/mingw81_64")
 
 set(SOURCE_FILES
         main.cpp
